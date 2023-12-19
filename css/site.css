@@ -57,15 +57,25 @@ footer .social>a:hover {
   color: var(--secondary-color);
 }
 
+.Fizz {
+  color: rgb(1, 82, 188);
+}
+
+.Buzz {
+  color: rgb(16, 157, 3);
+}
+
+.FizzBuzz {
+  color: rgb(143, 0, 0);
+  font-weight: bold;
+}
+
 code[class*="langauge-"],
     pre[class*="language-"] {
       white-space: pre-wrap;
       word-break: break-all;
       word-wrap: break-word;
     }
-
-
-
 
 
 main>.container {

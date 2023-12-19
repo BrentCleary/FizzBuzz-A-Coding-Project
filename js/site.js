@@ -18,7 +18,7 @@ function getValues()
     let fbArray = fizzBuzz(fizzValue, buzzValue);
 
     // call displayData and write the values to the screen
-
+    displayData(fbArray);
   }
   else
   {
@@ -30,7 +30,7 @@ function fizzBuzz(fizzValue, buzzValue)
 {
   let returnArray = [];
 
-  for (let i = 0; i <= 100; i++) {
+  for (let i = 1; i <= 100; i++) {
     
     if(i % fizzValue == 0 && i % buzzValue == 0 )
     {
@@ -50,13 +50,53 @@ function fizzBuzz(fizzValue, buzzValue)
     }
 
   }
+
+  return returnArray;
 }
 
 // loop over the array and create a table row for each item
 function displayData(fbArray)
 {
-  
+  // get the table body element from the page
+  let tableBody = document.getElementById("results");
+
+  // get the template cell
+  let templateRow = document.getElementById("fbTemplate");
+
+  // clear table first
+  tableBody.innerHTML = "";
+
+  for (let i = 0; i < fbArray.length; i += 5)
+  {
+    let tableRow = document.importNode(templateRow.content, true);
+    
+    // grab just the <td> to put into an array
+    let rowCols = tableRow.querySelectorAll("td");
+    rowCols[0].classList.add(fbArray[i]);
+    rowCols[0].textContent = fbArray[i];
+
+    rowCols[1].classList.add(fbArray[i+1]);
+    rowCols[1].textContent = fbArray[i+1];
+    
+    rowCols[2].classList.add(fbArray[i+2]);
+    rowCols[2].textContent = fbArray[i+2];
+    
+    rowCols[3].classList.add(fbArray[i+3]);
+    rowCols[3].textContent = fbArray[i+3];
+    
+    rowCols[4].classList.add(fbArray[i+4]);
+    rowCols[4].textContent = fbArray[i+4];
+
+    tableBody.appendChild(tableRow);
+  }
+
+  // add all the rows to the table
+
 }
+
+
+
+
 
 
 
